@@ -28,17 +28,13 @@ public class PostsManager {
     	User user1 = new User();
     	user1.setUserid(1);
     	user1.setUsername("Blue Elephant");
-    	List<Integer> lst = new ArrayList<Integer>();
-    	lst.add(2);
-    	lst.add(3);
-    	user1.setFollowers(lst);
+    	user1.getFollowers().add(2);
+    	user1.getFollowers().add(3);
     	
     	User user2 = new User();
     	user2.setUserid(2);
     	user2.setUsername("Red Carrot");
-    	List<Integer> lst2 = new ArrayList<Integer>();
-    	lst.add(3);
-    	user2.setFollowers(lst2);
+    	user2.getFollowers().add(3);
     	
     	User user3 = new User();
     	user3.setUserid(3);
@@ -60,20 +56,20 @@ public class PostsManager {
     			new Date());
     	Tweet tweet3 = new Tweet(tweetsIDGenerator++,
     			3,
-    			"Hello World",
-    			"I Can't believe that I write a Twitter! " + this.hmUsers.get(3).getUsername(),
+    			"Blue Elephants",
+    			"I Can't believe that, I saw them! " + this.hmUsers.get(3).getUsername(),
+    			new Date());
+    	Tweet tweet4 = new Tweet(tweetsIDGenerator++,
+    			1,
+    			"I Found it!",
+    			"Finally, the project compiles without errors! " + this.hmUsers.get(1).getUsername(),
     			new Date());
     	
-    	List<Tweet> lstTweets1 = new ArrayList<Tweet>();
-    	lstTweets1.add(tweet1);
-    	lstTweets1.add(tweet2);
+    	user1.getTweets().add(tweet1);
+    	user1.getTweets().add(tweet4);
+    	user2.getTweets().add(tweet2);
     	
-    	user1.setTweets(lstTweets1);
-    	
-    	List<Tweet> lstTweets2 = new ArrayList<Tweet>();
-    	lstTweets2.add(tweet3);
-    	
-    	user1.setTweets(lstTweets2);
+    	user3.getTweets().add(tweet3);
     }
     
     /** Compose a new tweet. */
@@ -114,7 +110,9 @@ public class PostsManager {
 	        		if (user.getUserid() == userID) {
 	    	        	List<Tweet> lstTweets = user.getTweets();
 	    	        	if (lstTweets != null) {
-	    	        		lstAllTweets.addAll(lstTweets);
+	    	        		for (Tweet t : lstTweets) {
+	    	        			lstAllTweets.add(t);
+	    	        		}
 	    	        	}
 	        		}
 	        	}

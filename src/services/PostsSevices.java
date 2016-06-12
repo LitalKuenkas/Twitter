@@ -7,7 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import BL.PostsManager;
 
 @Path("/posts")
 public class PostsSevices {
@@ -20,9 +23,11 @@ public class PostsSevices {
     	
 		try { 
 	    	final JSONObject json = new JSONObject(jsonObject);
-	    	String userID = json.getString("userID");
+	    	Integer userID = json.getInt("userID");
 	    	
-	        JSONObject obj = new JSONObject();
+	    	PostsManager postsManager = new PostsManager();
+	    	
+	        JSONArray obj = postsManager.getNewsFeed(userID);
 	        
 	        return Response.status(200).entity(obj.toString()).build();
 		} catch (Exception e) {

@@ -44,6 +44,10 @@ public class PostsManager {
     	user3.setUserid(3);
     	user3.setUsername("Shubi Dubi");
     	
+    	hmUsers.put(1, user1);
+    	hmUsers.put(2, user2);
+    	hmUsers.put(3, user3);
+    	
     	Tweet tweet1 = new Tweet(tweetsIDGenerator++,
     			1,
     			"What's all about?",
@@ -122,7 +126,7 @@ public class PostsManager {
 			try {
 				jsontweet.put("title", tweet.getHeader());
 				jsontweet.put("content", tweet.getText());
-				jsontweet.put("userName", this.hmUsers.get(tweet.getUserid()));
+				jsontweet.put("userName", this.hmUsers.get(tweet.getUserid()).getUsername());
 				jsontweet.put("creationDate", tweet.getCreationDate());
 				
 				jsonarray.put(jsontweet);

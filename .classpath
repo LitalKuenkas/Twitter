@@ -8,5 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="lib/javax.ws.rs-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/org.json.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

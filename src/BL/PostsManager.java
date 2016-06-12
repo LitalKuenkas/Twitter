@@ -36,9 +36,9 @@ public class PostsManager {
     	User user2 = new User();
     	user2.setUserid(2);
     	user2.setUsername("Red Carrot");
-    	lst = new ArrayList<Integer>();
+    	List<Integer> lst2 = new ArrayList<Integer>();
     	lst.add(3);
-    	user2.setFollowers(lst);
+    	user2.setFollowers(lst2);
     	
     	User user3 = new User();
     	user3.setUserid(3);
@@ -56,12 +56,12 @@ public class PostsManager {
     	Tweet tweet2 = new Tweet(tweetsIDGenerator++,
     			2,
     			"Hello World",
-    			"I Can't believe that I write a Twitter! " + this.hmUsers.get(1).getUsername(),
+    			"I Can't believe that I write a Twitter! " + this.hmUsers.get(2).getUsername(),
     			new Date());
     	Tweet tweet3 = new Tweet(tweetsIDGenerator++,
     			3,
     			"Hello World",
-    			"I Can't believe that I write a Twitter! " + this.hmUsers.get(2).getUsername(),
+    			"I Can't believe that I write a Twitter! " + this.hmUsers.get(3).getUsername(),
     			new Date());
     	
     	List<Tweet> lstTweets1 = new ArrayList<Tweet>();

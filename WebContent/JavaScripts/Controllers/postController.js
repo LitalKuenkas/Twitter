@@ -4,10 +4,14 @@ controllersModule.controller("postController", function($scope,postService){
 	
 	$scope.currentUserId = 0;
 	
-	$scope.newfeed = postService.getNewsFeed(1);
+    function successPosts(res) {
+    	$scope.newfeed = res;
+    }
+    
+	postService.getNewsFeed(1, successPosts);
 	
-	$scope.getNewsFeed = function(postService){
-		$scope.newfeed = postService.getNewFeed($scope.currentUserId);
+	$scope.getNewsFeed = function(){
+		postService.getNewFeed($scope.currentUserId, successPosts);
 	}
 	
 });
